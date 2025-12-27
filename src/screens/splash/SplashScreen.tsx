@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 import { View, Text, StyleSheet, Image } from 'react-native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
-import { RootStackParamList } from '../navigation/AppNavigator';
-import GradientBackground from '../components/GradientBackground';
+import { RootStackParamList } from '../../navigation/AppNavigator';
+import GradientBackground from '../../components/GradientBackground';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'Splash'>;
 
@@ -12,7 +12,7 @@ export default function SplashScreen({ navigation }: Props) {
       // Decide where to go based on persisted state
       try {
         // Dynamic import to avoid requiring store in tests too early
-        const { store } = require('../store');
+        const { store } = require('../../store');
         const state = store.getState();
         const loggedIn = state.auth?.loggedIn;
         const onboardingCompleted = state.auth?.onboardingCompleted;

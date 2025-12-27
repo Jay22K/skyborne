@@ -1,12 +1,12 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { useForm, Controller } from 'react-hook-form';
-import TextInput from '../components/TextInput.tsx';
-import Button from '../components/Button.tsx';
-import { useAuthViewModel } from '../viewmodels/useAuthViewModel';
+import TextInput from '../../components/TextInput.tsx';
+import Button from '../../components/Button.tsx';
+import { useAuthViewModel } from '../../viewmodels/useAuthViewModel';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
-import { RootStackParamList } from '../navigation/AppNavigator';
-import GradientBackground from '../components/GradientBackground';
+import { RootStackParamList } from '../../navigation/AppNavigator';
+import GradientBackground from '../../components/GradientBackground';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'Signup'>;
 

@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-import TextInput from '../components/TextInput';
-import Button from '../components/Button';
-import { useAuthViewModel } from '../viewmodels/useAuthViewModel';
+import TextInput from '../../components/TextInput';
+import Button from '../../components/Button';
+import { useAuthViewModel } from '../../viewmodels/useAuthViewModel';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
-import { RootStackParamList } from '../navigation/AppNavigator';
-import GradientBackground from '../components/GradientBackground';
+import { RootStackParamList } from '../../navigation/AppNavigator';
+import GradientBackground from '../../components/GradientBackground';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'OTP'>;
 

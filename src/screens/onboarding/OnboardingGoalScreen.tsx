@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-import TextInput from '../components/TextInput';
-import Button from '../components/Button';
-import { useOnboardingStore } from '../store/onboardingSlice';
+import TextInput from '../../components/TextInput';
+import Button from '../../components/Button';
+import { useOnboardingStore } from '../../store/onboardingSlice';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
-import { RootStackParamList } from '../navigation/AppNavigator';
+import { RootStackParamList } from '../../navigation/AppNavigator';
 import { useDispatch } from 'react-redux';
-import { setOnboardingCompleted } from '../store/authSlice';
-import GradientBackground from '../components/GradientBackground';
+import { setOnboardingCompleted } from '../../store/authSlice';
+import GradientBackground from '../../components/GradientBackground';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'OnboardingGoal'>;
 

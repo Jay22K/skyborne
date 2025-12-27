@@ -1,13 +1,13 @@
 import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import SplashScreen from '../screens/SplashScreen';
-import AuthOptionsScreen from '../screens/AuthOptionsScreen';
-import SignupScreen from '../screens/SignupScreen';
-import OTPVerificationScreen from '../screens/OTPVerificationScreen';
-import OnboardingInspirationScreen from '../screens/OnboardingInspirationScreen';
-import OnboardingGoalScreen from '../screens/OnboardingGoalScreen';
-import WelcomeScreen from '../screens/WelcomeScreen';
-import HomeScreen from '../screens/HomeScreen';
+import SplashScreen from '../screens/splash/SplashScreen';
+import AuthOptionsScreen from '../screens/auth/AuthOptionsScreen';
+import SignupScreen from '../screens/auth/SignupScreen';
+import OTPVerificationScreen from '../screens/auth/OTPVerificationScreen';
+import OnboardingInspirationScreen from '../screens/onboarding/OnboardingInspirationScreen';
+import OnboardingGoalScreen from '../screens/onboarding/OnboardingGoalScreen';
+import WelcomeScreen from '../screens/onboarding/WelcomeScreen';
+import HomeScreen from '../screens/home/HomeScreen';
 
 export type RootStackParamList = {
   Splash: undefined;

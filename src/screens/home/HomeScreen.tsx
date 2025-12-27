@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-import GradientBackground from '../components/GradientBackground';
+import GradientBackground from '../../components/GradientBackground';
 
 export default function HomeScreen() {
   return (

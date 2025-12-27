@@ -1,8 +1,8 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-import Button from '../components/Button';
-import { useOnboardingStore } from '../store/onboardingSlice';
-import GradientBackground from '../components/GradientBackground';
+import Button from '../../components/Button';
+import { useOnboardingStore } from '../../store/onboardingSlice';
+import GradientBackground from '../../components/GradientBackground';
 
 export default function WelcomeScreen({ navigation }: any) {
   const { inspiration, firstGoal } = useOnboardingStore();

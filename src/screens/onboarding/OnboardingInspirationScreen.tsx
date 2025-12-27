@@ -1,10 +1,10 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-import Button from '../components/Button';
-import { useOnboardingStore } from '../store/onboardingSlice';
+import Button from '../../components/Button';
+import { useOnboardingStore } from '../../store/onboardingSlice';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
-import { RootStackParamList } from '../navigation/AppNavigator';
-import GradientBackground from '../components/GradientBackground';
+import { RootStackParamList } from '../../navigation/AppNavigator';
+import GradientBackground from '../../components/GradientBackground';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'OnboardingInspiration'>;
 

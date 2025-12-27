@@ -1,9 +1,9 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
-import { RootStackParamList } from '../navigation/AppNavigator';
-import Button from '../components/Button';
-import GradientBackground from '../components/GradientBackground';
+import { RootStackParamList } from '../../navigation/AppNavigator';
+import Button from '../../components/Button';
+import GradientBackground from '../../components/GradientBackground';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'AuthOptions'>;
 
