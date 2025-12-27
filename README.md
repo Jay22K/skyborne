@@ -86,6 +86,23 @@ You've successfully run and modified your React Native App. :partying_face:
 
 If you're having issues getting the above steps to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
 
+---
+
+## New: Onboarding & Auth Template
+
+This repo now contains a skeleton onboarding/auth flow:
+
+- Splash -> Auth options -> Signup -> OTP -> Onboarding question 1 (Inspiration) -> Onboarding question 2 (First goal) -> Welcome -> Home
+
+Files of interest:
+- `src/navigation/AppNavigator.tsx`
+- `src/screens/*` (all screens for the flow)
+- `src/store` (Redux auth slice + zustand onboarding store)
+- `src/viewmodels/useAuthViewModel.ts` (simple MVVM-style hook)
+
+Install the new dependencies and run the app as normal. See `docs/ARCHITECTURE.md` for design notes and next steps.
+
+
 # Learn More
 
 To learn more about React Native, take a look at the following resources:
