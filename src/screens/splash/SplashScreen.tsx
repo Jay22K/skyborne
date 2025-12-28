@@ -10,22 +10,23 @@ export default function SplashScreen({ navigation }: Props) {
   useEffect(() => {
     const t = setTimeout(() => {
       // Decide where to go based on persisted state
-      try {
-        // Dynamic import to avoid requiring store in tests too early
-        const { store } = require('../../store');
-        const state = store.getState();
-        const loggedIn = state.auth?.loggedIn;
-        const onboardingCompleted = state.auth?.onboardingCompleted;
+      // try {
+      //   // Dynamic import to avoid requiring store in tests too early
+      //   const { store } = require('../../store');
+      //   const state = store.getState();
+      //   const loggedIn = state.auth?.loggedIn;
+      //   const onboardingCompleted = state.auth?.onboardingCompleted;
 
-        if (loggedIn) {
-          if (onboardingCompleted) navigation.replace('Home');
-          else navigation.replace('OnboardingInspiration');
-        } else {
-          navigation.replace('WelcomeScreen');
-        }
-      } catch (e) {
-        navigation.replace('AuthOptions');
-      }
+      //   if (loggedIn) {
+      //     if (onboardingCompleted) navigation.replace('Home');
+      //     else navigation.replace('OnboardingInspiration');
+      //   } else {
+      //     navigation.replace('WelcomeScreen');
+      //   }
+      // } catch (e) {
+      //   navigation.replace('AuthOptions');
+      // }
+      navigation.replace('WelcomeScreen');
     }, 1400);
     return () => clearTimeout(t);
   }, [navigation]);

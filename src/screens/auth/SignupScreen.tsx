@@ -1,8 +1,14 @@
-import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import React, { useState } from 'react';
+import {
+  View,
+  Text,
+  StyleSheet,
+  TouchableOpacity,
+  Image,
+} from 'react-native';
 import { useForm, Controller } from 'react-hook-form';
-import TextInput from '../../components/TextInput.tsx';
-import Button from '../../components/Button.tsx';
+import TextInput from '../../components/TextInput';
+import Button from '../../components/Button';
 import { useAuthViewModel } from '../../viewmodels/useAuthViewModel';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { RootStackParamList } from '../../navigation/AppNavigator';
@@ -10,44 +16,197 @@ import GradientBackground from '../../components/GradientBackground';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'Signup'>;
 
-type FormData = { name: string; phone: string };
+type FormData = {
+  name: string;
+  email: string;
+  password: string;
+  country: string;
+};
 
 export default function SignupScreen({ navigation }: Props) {
-  const { control, handleSubmit } = useForm<FormData>({ defaultValues: { name: '', phone: '' } });
+  const { control, handleSubmit } = useForm<FormData>({
+    defaultValues: {
+      name: '',
+      email: '',
+      password: '',
+      country: '',
+    },
+  });
+
   const { signup } = useAuthViewModel();
+  const [agree, setAgree] = useState(false);
 
   const onSubmit = async (data: FormData) => {
-    const res = await signup(data);
-    if (res?.success) {
-      navigation.navigate('OTP', { phone: data.phone });
-    }
+    navigation.navigate('OTP', { phone: data.email });
+    // if (!agree) return;
+    // const res = await signup(data);
+    // if (res?.success) {
+    // navigation.navigate('OTP', { phone: data.email });
+    // }
   };
 
   return (
     <GradientBackground>
-      <View style={styles.container}>
-        <Text style={styles.title}>Create Account</Text>
-        <Controller
-          control={control}
-          name="name"
-          render={({ field: { onChange, value } }) => (
-            <TextInput placeholder="Full name" value={value} onChangeText={onChange} />
-          )}
-        />
-        <Controller
-          control={control}
-          name="phone"
-          render={({ field: { onChange, value } }) => (
-            <TextInput placeholder="Phone number" keyboardType="phone-pad" value={value} onChangeText={onChange} />
-          )}
-        />
-        <Button title="Next" onPress={handleSubmit(onSubmit)} />
+      <View style={styles.screen}>
+        {/* APP BAR */}
+        <View style={styles.appBar}>
+          <TouchableOpacity
+            onPress={() => navigation.goBack()}
+            style={styles.backBtn}
+          >
+            <Text style={styles.backIcon}>‹</Text>
+          </TouchableOpacity>
+
+          <View style={styles.appBarCenter}>
+            <Image
+              source={require('../../assets/images/logo.png')}
+              style={styles.logo}
+            />
+            <Text style={styles.appName}>Skyborne Drop</Text>
+          </View>
+
+          <View style={{ width: 32 }} />
+        </View>
+
+        {/* CONTENT */}
+        <View style={styles.container}>
+          <Text style={styles.title}>Create Your Skyborne Account</Text>
+
+          {/* First Name */}
+          <Text style={styles.label}>First Name*</Text>
+          <Controller
+            control={control}
+            name="name"
+            render={({ field: { onChange, value } }) => (
+              <TextInput value={value} onChangeText={onChange} />
+            )}
+          />
+
+          {/* Email */}
+          <Text style={styles.label}>Email Address*</Text>
+          <Controller
+            control={control}
+            name="email"
+            render={({ field: { onChange, value } }) => (
+              <TextInput
+                keyboardType="email-address"
+                value={value}
+                onChangeText={onChange}
+              />
+            )}
+          />
+
+          {/* Password */}
+          <Text style={styles.label}>Password*</Text>
+          <Controller
+            control={control}
+            name="password"
+            render={({ field: { onChange, value } }) => (
+              <TextInput secureTextEntry value={value} onChangeText={onChange} />
+            )}
+          />
+
+          {/* Country */}
+          <Text style={styles.label}>Country*</Text>
+          <TextInput placeholder="Select an option" />
+
+          {/* Terms */}
+          <TouchableOpacity
+            style={styles.checkboxRow}
+            onPress={() => setAgree(!agree)}
+          >
+            <View style={[styles.checkbox, agree && styles.checkboxChecked]} />
+            <Text style={styles.termsText}>
+              I agree to Skyborne’s{' '}
+              <Text style={styles.link}>Terms</Text> and{' '}
+              <Text style={styles.link}>Data Policy</Text>
+            </Text>
+          </TouchableOpacity>
+
+          {/* CTA */}
+          <Button title="Login" onPress={handleSubmit(onSubmit)} />
+        </View>
       </View>
+
     </GradientBackground>
   );
 }
 
+
 const styles = StyleSheet.create({
-  container: { padding: 24, justifyContent: 'center', flex: 1 },
-  title: { fontSize: 22, fontWeight: '700', marginBottom: 12 },
+  screen: {
+    flex: 1,
+  },
+  appBar: {
+    height: 120,
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingHorizontal: 20,
+
+  },
+  backBtn: {
+    width: 32,
+    alignItems: 'center',
+  },
+  backIcon: {
+    fontSize: 24,
+    color: '#3A3A3A',
+  },
+  appBarCenter: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  logo: {
+    width: 60,
+    height: 65,
+    resizeMode: 'contain',
+    marginRight: 6,
+  },
+  appName: {
+    fontSize: 15,
+    fontWeight: '500',
+    color: '#3A3A3A',
+  },
+  container: {
+    paddingHorizontal: 24,
+  },
+  title: {
+    fontSize: 26,
+    fontWeight: '600',
+    color: '#3A3A3A',
+    marginBottom: 20,
+  },
+  label: {
+    fontSize: 13,
+    color: '#666',
+    marginBottom: 6,
+    marginTop: 14,
+  },
+  checkboxRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginVertical: 18,
+  },
+  checkbox: {
+    width: 16,
+    height: 16,
+    borderRadius: 4,
+    borderWidth: 1,
+    borderColor: '#CCC',
+    marginRight: 10,
+  },
+  checkboxChecked: {
+    backgroundColor: '#B5647E',
+    borderColor: '#B5647E',
+  },
+  termsText: {
+    fontSize: 13,
+    color: '#666',
+  },
+  link: {
+    color: '#B5647E',
+    fontWeight: '500',
+  },
 });

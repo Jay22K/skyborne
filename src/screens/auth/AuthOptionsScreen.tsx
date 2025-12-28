@@ -50,7 +50,7 @@ export default function AuthOptionsScreen({ navigation }: Props) {
             <ThemedText weight="medium" style={styles.loginButtonText}>Login</ThemedText>
           </TouchableOpacity>
 
-          <TouchableOpacity style={styles.signupButton}  onPress={() => navigation.navigate('OTP')}>
+          <TouchableOpacity style={styles.signupButton}  onPress={() => navigation.navigate('Signup')}>
             <ThemedText weight="medium" style={styles.signupText}>Signup</ThemedText>
           </TouchableOpacity>
         </View>
