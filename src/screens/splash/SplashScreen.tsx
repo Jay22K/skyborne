@@ -44,6 +44,6 @@ export default function SplashScreen({ navigation }: Props) {
 const styles = StyleSheet.create({
   container: { justifyContent: 'center', alignItems: 'center', flex: 1 },
   logo: { width: 70, height: 75, borderRadius: 24, marginBottom: 20 },
-  title: { fontSize: 18, fontWeight: '400' ,color: '#666' },
+  title: { fontSize: 18, fontWeight: '400', color: '#666' },
   subtitle: { marginTop: 8, color: '#666' },
 });

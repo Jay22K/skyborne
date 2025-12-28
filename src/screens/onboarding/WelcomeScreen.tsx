@@ -26,3 +26,4 @@ const styles = StyleSheet.create({
   title: { fontSize: 26, fontWeight: '800' },
   subtitle: { color: '#666' },
 });
+

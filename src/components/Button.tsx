@@ -12,8 +12,8 @@ export default function Button({ title, onPress, variant }: { title: string; onP
 
 const styles = StyleSheet.create({
   button: { padding: 12, borderRadius: 8, alignItems: 'center' },
-  primary: { backgroundColor: '#2f6df6' },
-  ghost: { backgroundColor: 'transparent', borderWidth: 1, borderColor: '#2f6df6' },
+  primary: { backgroundColor: '#b95d82' },
+  ghost: { backgroundColor: 'transparent', borderWidth: 1, borderColor: '#b95d82' },
   text: { color: '#fff', fontWeight: '700' },
   ghostText: { color: '#2f6df6', fontWeight: '700' },
 });
