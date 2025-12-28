@@ -21,7 +21,7 @@ export default function SplashScreen({ navigation }: Props) {
           if (onboardingCompleted) navigation.replace('Home');
           else navigation.replace('OnboardingInspiration');
         } else {
-          navigation.replace('AuthOptions');
+          navigation.replace('WelcomeScreen');
         }
       } catch (e) {
         navigation.replace('AuthOptions');

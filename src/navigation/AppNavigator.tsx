@@ -16,7 +16,7 @@ export type RootStackParamList = {
   OTP: { phone?: string } | undefined;
   OnboardingInspiration: undefined;
   OnboardingGoal: undefined;
-  Welcome: undefined;
+  WelcomeScreen: undefined;
   Home: undefined;
 };
 
@@ -31,7 +31,7 @@ export default function AppNavigator() {
       <Stack.Screen name="OTP" component={OTPVerificationScreen} />
       <Stack.Screen name="OnboardingInspiration" component={OnboardingInspirationScreen} />
       <Stack.Screen name="OnboardingGoal" component={OnboardingGoalScreen} />
-      <Stack.Screen name="Welcome" component={WelcomeScreen} />
+      <Stack.Screen name="WelcomeScreen" component={WelcomeScreen} />
       <Stack.Screen name="Home" component={HomeScreen} />
     </Stack.Navigator>
   );

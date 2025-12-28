@@ -46,11 +46,11 @@ export default function AuthOptionsScreen({ navigation }: Props) {
             <AuthButton icon={require('../../assets/icons/facebook.png')} text="Continue with Facebook" />
           </View>
 
-          <TouchableOpacity style={styles.loginButton} onPress={() => navigation.navigate('Welcome')}>
+          <TouchableOpacity style={styles.loginButton} onPress={() => navigation.navigate('WelcomeScreen')}>
             <ThemedText weight="medium" style={styles.loginButtonText}>Login</ThemedText>
           </TouchableOpacity>
 
-          <TouchableOpacity onPress={() => navigation.navigate('Signup')}>
+          <TouchableOpacity style={styles.signupButton}  onPress={() => navigation.navigate('OTP')}>
             <ThemedText weight="medium" style={styles.signupText}>Signup</ThemedText>
           </TouchableOpacity>
         </View>
@@ -67,14 +67,14 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'center',
-    paddingHorizontal: 24,
+    paddingHorizontal: 4,
   },
   header: {
     flexDirection: 'row',        // 👈 puts logo + text in one row
     alignItems: 'center',        // vertical alignment
     justifyContent: 'center',    // center horizontally
-    marginTop: 40,
-    marginBottom: 70,
+    marginTop: 25,
+    marginBottom: 50,
   },
   logo: {
     width: 70,
@@ -104,26 +104,26 @@ const styles = StyleSheet.create({
   },
   authButtonsContainer: {
     width: '85%',
-    marginBottom: 20,
+    marginBottom: 45,
   },
   authButton: {
     flexDirection: 'row',
     alignItems: 'center',
     height: 54,
-    backgroundColor: '#F7F7F7',
+    // backgroundColor: '#F7F7F7',
     borderRadius: 27,
     borderWidth: 1,
     borderColor: '#E0E0E0',
     marginBottom: 12,
-    paddingHorizontal: 20,
+    paddingHorizontal: 60,
   },
   authButtonIcon: {
-    fontSize: 22,
+    fontSize: 16,
     marginRight: 12,
   },
   authButtonImage: {
-    width: 24, // Example width
-    height: 24, // Example height
+    width: 18, // Example width
+    height: 18, // Example height
     marginRight: 12,
     resizeMode: 'contain',
   },
@@ -139,29 +139,47 @@ const styles = StyleSheet.create({
     borderRadius: 28,
     justifyContent: 'center',
     alignItems: 'center',
-    shadowColor: '#000',
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 3.84,
-    elevation: 5,
-    marginBottom: 20,
+    // shadowColor: '#000',
+    // shadowOffset: {
+    //   width: 0,
+    //   height: 2,
+    // },
+    // shadowOpacity: 0.25,
+    // shadowRadius: 3.84,
+    // elevation: 5,
+    marginBottom: 10,
   },
   loginButtonText: {
     color: '#FFFFFF',
     fontSize: 18,
     fontWeight: '600',
   },
+
+  signupButton: {
+    width: '85%',
+    height: 56,
+    backgroundColor: '#fee9e8',
+    borderRadius: 28,
+    justifyContent: 'center',
+    alignItems: 'center',
+    // shadowColor: '#000',
+    // shadowOffset: {
+    //   width: 0,
+    //   height: 2,
+    // },
+    // shadowOpacity: 0.25,
+    // shadowRadius: 3.84,
+    // elevation: 5,
+    marginBottom: 20,
+  },
   signupText: {
-    color: '#b95d82',
+    color: '#7a5454ff',
     fontSize: 16,
     fontWeight: '500',
   },
   legalText: {
     position: 'absolute',
-    bottom: 30,
+    bottom: 15,
     fontSize: 12,
     color: '#AAAAAA',
     textAlign: 'center',
